@@ -1,0 +1,86 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  transition: background-color 0.5s, color 0.5s;
+}
+.container.light {
+  background-color: white;
+  color: black;
+}
+.container.dark {
+  background-color: black;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.toggle-btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between; /* spreads items across full width */
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+font-weight: 300;
+}
+.menu-item {
+  position: relative;
+  cursor: pointer;
+  flex: 1;                  /* forces equal space between items */
+  text-align: center; 
+}
+.menu-text {
+  text-transform: capitalize;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, transform 0.3s ease; /* added */
+}
+
+.menu-item:hover .menu-text {
+  opacity: 0.8;
+  transform: scale(1.05); /* added for slight zoom effect */
+  color: #007aff; /* subtle Apple blue highlight on hover */
+}
+.underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background-color: currentColor;
+}
+
+.main {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically */
+  flex-direction: column;
+  margin-top: 200px;
+}
+.typing-text {
+  font-size: 2.5rem;
+  white-space: pre-line;
+  font-family: monospace;
+}
+.project-content {
+  font-size: 1.25rem;
+}
