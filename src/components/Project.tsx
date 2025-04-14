@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 interface ProjectProps {
   title: string;
@@ -10,9 +9,10 @@ interface ProjectProps {
 const Project = ({ title, description, lesson }: ProjectProps) => {
   return (
     <>
-      <h2 className="project-title">{title}</h2>
-      <p className="project-content">{description}</p>
-      <h3 className="project-lesson">{lesson}</h3>
+      {/* Add Tailwind classes based on App.css */}
+      <h2 className="text-2xl font-bold mb-4">{title}</h2> {/* Assuming a title style */}
+      <p className="text-xl">{description}</p> {/* Equivalent to .project-content */}
+      <h3 className="text-lg mt-4 italic">{lesson}</h3> {/* Assuming a lesson style */}
     </>
   );
 };

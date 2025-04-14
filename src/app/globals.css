@@ -2,77 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add any custom styles that can't be achieved with Tailwind here */
 @layer base {
-  :root {
-    --foreground: #000000;
-    --background: #ffffff;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-  }
-
   html, body {
-    width: 100vw;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-@layer components {
-  .header {
-    @apply flex justify-between items-center mb-12;
-  }
-  
-  .logo {
-    @apply text-2xl font-bold;
-  }
-  
-  .toggle-btn {
-    @apply py-2 px-4 cursor-pointer;
-  }
-  
-  .menu {
-    @apply flex justify-between w-full mb-8 font-sans font-light;
-  }
-  
-  .menu-item {
-    @apply relative cursor-pointer flex-1 text-center;
-  }
-  
-  .menu-text {
-    @apply capitalize text-sm font-light font-sans tracking-wider transition-all duration-300;
-  }
-  
-  .menu-item:hover .menu-text {
-    @apply opacity-80 scale-105 text-[#007aff];
-  }
-  
-  .underline {
-    @apply absolute left-0 right-0 -bottom-1 h-0.5 bg-current;
-  }
-  
-  .main {
-    @apply text-center max-w-2xl mx-auto flex justify-center items-center flex-col mt-52;
-  }
-  
-  .typing-text {
-    @apply text-4xl whitespace-pre-line font-mono;
-  }
-  
-  .project-content {
-    @apply text-xl;
-  }
-  
-  .project-title {
-    @apply text-2xl font-bold mb-4;
-  }
-  
-  .project-lesson {
-    @apply text-lg mt-4 italic;
+    @apply w-full m-0 p-0;
   }
 }
