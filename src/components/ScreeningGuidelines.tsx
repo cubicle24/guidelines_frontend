@@ -27,18 +27,18 @@ export default function ScreeningGuidelines() {
     };
 
     return (
-      <div className="min-h-screen w-full bg-gradient-to-b from-[#f0f2ff] to-[#f5eeff] flex flex-col items-center justify-center p-6">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-1">
+      <div className="min-h-screen w-full bg-gradient-to-b from-[#f0f2ff] to-[#f5eeff] flex flex-col items-center justify-center p-6 text-3xl">
+        <h1 className="text-5xl font-bold text-center text-gray-800 mb-1">
           CLINICAL GUIDELINES
         </h1>
-        <h2 className="text-lg font-medium text-center text-gray-600 mb-6">
+        <h2 className="text-3xl font-medium text-center text-gray-600 mb-6">
           Decision Support System
         </h2>
   
         <div className="bg-white rounded-2xl shadow-md p-6 w-full max-w-4xl mb-4">
           <h3 className="text-md font-semibold text-gray-700 mb-2">Patient Note</h3>
           <textarea
-            className="border border-purple-200 p-4 rounded-lg text-gray-800 text-sm w-full h-28 resize-none focus:outline-none focus:ring-2 focus:ring-purple-300 mb-2"
+            className="border border-purple-200 p-4 rounded-lg text-gray-800 text-lg w-full h-28 resize-none focus:outline-none focus:ring-2 focus:ring-purple-300 mb-2"
             placeholder="Enter patient note here..."
             value={patientNote}
             onChange={(e) => setPatientNote(e.target.value)}
