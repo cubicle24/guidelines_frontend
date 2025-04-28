@@ -4,12 +4,20 @@ export interface GuidelineRequest {
 }
 
 export interface Recommendation {
-  text: string;
-  grade: string;
+  test: string;
+  justification: string;
+  next_due_date: string;
+  evidence: string;
+  governing_body: string;
+  topic: string;
+  pub_date: string;
 }
 
 export interface GuidelineResponse {
-  recommendations: Recommendation[];
+  recommendations: {
+    recommendations: Recommendation[];
+    additional_recommendations: Recommendation[];
+  };
 }
 
 // Base URL for the API

@@ -94,11 +94,11 @@ export default function Home() {
     };
 
     switch (activeSection) {
-      case 'intro':
+      case 'Hello':
         // Option 1: Inline TypingText
         return (
           <motion.div key={activeSection} {...motionProps}>
-             <TypingText text={`Hi, thanks for coming.\n\nI'd like to give you\n\nthe top 2 reasons to work with me, \n\nusing 2 projects.`} />
+             <TypingText text={`Hi, thanks for coming.\n\nI'd like to give you\n\nthe top 2 reasons to hire me, \n\nusing 2 projects.`} />
           </motion.div>
         );
         // Option 2: Use a dedicated IntroSection component
@@ -111,14 +111,13 @@ export default function Home() {
          return (
             <motion.div key={activeSection} {...motionProps}>
                 <TypingText text={`Reason 1: LLMs are the future of healthcare.  I am already there.\n\n 
-                Problem: Preventing screening for disease is still the most clinically \nand cost effective medical care we have.
+                Problem: Preventive screening for disease is still the most clinically \nand cost effective medical care we have.
                 Health plans know this, so doctors are rewarded or penalized based on\n their medical screening practices. However, there are more than\n 97 different and ever-changing screening guidelines. 
                 It is unrealistic to expect doctors to remember all of them.  Rules-based\n reminder systems can not capture the entire range of clinical possibilities.\n\n
                 Solution: I built a retrieval augmented generation (RAG) system that takes
-                 a patient note and generates a ranked list of the most appropriate\n screening guidelines, automatically.  This improves a doctor's\n performance, routes appropriate care to the patient, and saves\n the health system money. Everyone wins.\n\n
-                  Tech stack: Langchain for the RAG, using LLAMA-4 Scout. \nFastAPI for the backend. React/Next.js for the front end.\n`} />
+                 a patient note and generates a personalized, ranked list of the most appropriate\n screening guidelines, automatically.  This improves a doctor's\n performance, routes appropriate care to the patient, and saves\n the health system money. Everyone wins.\n\n
+                  Tech stack: Langchain for the RAG, using Gemini 2.5 Flash. \nFrontend: React/Next.js. Backend: Python FastAPI\n`} />
               
-
                 <ScreeningGuidelines />
 
              </motion.div>
