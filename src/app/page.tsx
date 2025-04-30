@@ -172,7 +172,7 @@ export default function Home() {
       theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'
     }`}>
       <header className="flex justify-between items-center mb-12">
-        <h1 className="text-2xl font-bold">home</h1>
+        <h1 className="text-2xl font-bold"><a href="mailto:richardlu@alum.mit.edu">Contact</a></h1>
         <button
           className="py-2 px-4 cursor-pointer"
           onClick={toggleTheme}

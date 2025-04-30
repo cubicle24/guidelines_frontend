@@ -21,7 +21,8 @@ export interface GuidelineResponse {
 }
 
 // Base URL for the API
-const API_URL = 'http://localhost:8000';
+// const API_URL = 'http://localhost:8000';
+const API_URL = 'http://154.53.56.13:8000';
 
 /**
  * Fetches screening recommendations based on patient notes
