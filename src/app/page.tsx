@@ -28,35 +28,8 @@ interface ProjectCollection {
 export default function Home() {
   // --- State and Data ---
   // const sections: string[] = ['intro', 'project 1', 'project 2', 'project 3', 'project 4', 'project 5'];
-  const sections: string[] = ['Hello', 'project 1: a modern clinical decision support system', 'project 2: a flexible FHIR Transformer'];
-  const projectData: ProjectCollection = {
-    'project 1': {
-      title: 'Preventive Screening Tests RAG Recommendation System',
-      description: 'I built a retrieval augmented generation system (RAG) for automated asthma treatment recommendations',
-      lesson: 'Why this is valuable: Clinical guidelines exist but are rarely followed. Accurate, relevant, automated clinical decision support systems are needed.',
-    },
-    'project 2': {
-      title: 'Visual Patient Summaries',
-      description: 'I take their lab results and plot them automatically.',
-      lesson: 'Lesson: LLMs are the future in healthcare.  I am already there.',
-    },
-    // 'project 3': {
-    //   title: 'Automated Differential Diagnosis Clinical Decision Support System',
-    //   description: 'this project looks at a patient subjective and objective data and produces a ranked list of possible diagnoses.',
-    //   lesson: 'The most crucial step in good medical care is to make the right diagnosis.',
-    // },
-    // 'project 4': {
-    //   title: 'FHIR interoperability',
-    //   description: 'Takes all the clinical notes of a patient and outputs it into FHIR compatible format. This makes transferring a patient chart seamless between doctors',
-    //   lesson: 'Healthcare is fragmented, which means critical communication between doctors often does not happen. Information is lost, tests are repeated, resulting in inefficient and less effective outcomes.',
-    // },
-    // 'project 5': {
-    //   title: 'Antidepressant Choices',
-    //   description: 'Description of Project 5.',
-    //   lesson: 'Pulls up the 3 most similar patients for the current patient.',
-    // },
-  };
-
+  // const sections: string[] = ['Hello', 'project 1: a modern clinical decision support system', 'project 2: a flexible FHIR Transformer'];
+  const sections: string[] = ['Hello', 'A next generation clinical decision support system'];
   const [activeSection, setActiveSection] = useState<string>('intro');
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
@@ -98,19 +71,19 @@ export default function Home() {
         // Option 1: Inline TypingText
         return (
           <motion.div key={activeSection} {...motionProps}>
-             <TypingText text={`Hi, thanks for coming.\n\nI'd like to give you\n\nthe top 2 reasons to hire me, \n\nusing 2 projects.`} />
+             <TypingText text={`Hi, thanks for coming.\n\nI'd like to give you\n\nthe best reason to hire me, \n\nusing one project.`} />
           </motion.div>
         );
         // Option 2: Use a dedicated IntroSection component
         // return <motion.div {...motionProps}><IntroSection /></motion.div>;
 
-      case 'project 1: a modern clinical decision support system':
+      case 'A next generation clinical decision support system':
         // Option 1: Use specific component
         // return <motion.div {...motionProps}><Project1Details data={projectData[activeSection]} /></motion.div>;
         // Option 2: Use generic Project component if structure is the same
          return (
             <motion.div key={activeSection} {...motionProps}>
-                <TypingText text={`Reason 1: LLMs are the future of healthcare.  I am already there.\n\n 
+                <TypingText text={`The Top Reason: LLMs are the future of healthcare.  I am already there.\n\n 
                 Problem: Preventive screening for disease is still the most clinically \nand cost effective medical care we have.
                 Health plans know this, so doctors are rewarded or penalized based on\n their medical screening practices. However, there are more than\n 97 different and ever-changing screening guidelines. 
                 It is unrealistic to expect doctors to remember all of them.  Rules-based\n reminder systems can not capture the entire range of clinical possibilities.\n\n
