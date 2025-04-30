@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import { useState } from "react";
 import { getRecommendations, Recommendation } from "../services/api";
 
@@ -15,7 +15,7 @@ export default function ScreeningGuidelines() {
       
       try {
         console.log("Patient Note:", patientNote);
-        let clinicalNote = {"clinical_note": patientNote};
+        const clinicalNote = {"clinical_note": patientNote};
         const data = await getRecommendations(clinicalNote);
         console.log("Recommendations:", data.recommendations);
         setRecommendations(data.recommendations.recommendations || []);
@@ -38,7 +38,7 @@ export default function ScreeningGuidelines() {
         </h2>
         <div className="instructions text-lg text-gray-700 italic mb-6">
           <ol>
-            <li>To get started, type in a patient's note and press go.</li>
+            <li>To get started, type in a patient&apos;s note and press go.</li>
             <li>You can also choose from some pre-written patient notes.</li>
           </ol>
         </div>
@@ -102,12 +102,12 @@ export default function ScreeningGuidelines() {
   
         <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-4xl">
           <h3 className="text-md font-semibold text-gray-700 mb-8">
-            Your Patient's Screening Recommendations
+            Your Patient&apos;s Screening Recommendations
           </h3>
   
           {recommendations.length > 0 ? (
             <>
-              <p className="text-sm mb-4 text-gray-500">Recommendations derived from hospital's internal sources</p>
+              <p className="text-sm mb-4 text-gray-500">Recommendations derived from hospital&apos;s internal sources</p>
               {recommendations.map((rec, index) => (
                 <div key={index} className="border border-sky-100 rounded-lg p-4 mb-3 last:mb-0 text-lg text-gray-700">
                   <p className="text-lg text-blue-600 font-bold mb-4">{rec.test}:</p>
