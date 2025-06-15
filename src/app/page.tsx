@@ -29,7 +29,10 @@ export default function Home() {
   // --- State and Data ---
   // const sections: string[] = ['intro', 'project 1', 'project 2', 'project 3', 'project 4', 'project 5'];
   // const sections: string[] = ['Hello', 'project 1: a modern clinical decision support system', 'project 2: a flexible FHIR Transformer'];
-  const sections: string[] = ['Hello', 'Clinical AI: A next generation clinical decision support system', 'Healthcare Data Science Projects'];
+  const sections: string[] = ['Hello', 'Clinical AI: A next generation clinical decision support system', 'A Social Determinants of Health (SDOH) Autonomous Agent',
+    'Healthcare Data Science Projects',
+    
+  ];
   const [activeSection, setActiveSection] = useState<string>('Hello');
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
@@ -88,7 +91,7 @@ export default function Home() {
          return (
             <motion.div key={activeSection} {...motionProps}>
                 <TypingText className="text-blue-500 text-center" text={`LLMs are the future of healthcare.  I am already there.`} />
-                <div className="text-2xl mt-10">Problem: Preventive screening for disease is still the most clinically and cost effective medical care we have.
+                <div className="text-2xl mt-10">The Problem: Preventive screening for disease is still the most clinically and cost effective medical care we have.
                 Health plans know this, so doctors are rewarded or penalized based on<br/> their medical screening practices. However, there are more than 97 different, frequently changing screening guidelines.
                 It is unrealistic to expect doctors<br /> to remember all of them.  Rules-based reminder systems can not capture the full range of clinical possibilities.</div>
 
@@ -105,12 +108,41 @@ export default function Home() {
              </motion.div>
          );
 
+      case 'A Social Determinants of Health (SDOH) Autonomous Agent':
+        // Example with a different specific component (if needed)
+        // return <motion.div {...motionProps}><Project2Details details={projectData[activeSection]} /></motion.div>;
+         return (
+          <motion.div key={activeSection} {...motionProps}>
+          <TypingText className="text-blue-500 text-center" text={`I help fix the fundamental contradiction of healthcare: providers practice paperwork more than patient care.`} />
+          <div className="text-2xl mt-10">The Problem: &nbsp;Staying healthy often has little to do with one's body. Between 50-80% of a person's health is determined by circumstances that may be outside a person's immediate control.    
+          Social determinants of health (SDOH), such as unemployment, housing instability, food insecurity, etc., are now recognized to be as integral to a person's health
+          as their cholesterol. In simple terms, it's difficult to stay healthy when you have to ride 3 buses just to get to work, healthy food costs too much, and sleep poorly because you can't afford to turn on the heat at night. <br /> 
+          <br />
+          Physicians, social workers, and case managers all care about SDOH, but they have no time to ask about them.  
+          Furthermore, reimbursement and quality scores are now tied to improving SDOH since it is not only cost-effective, but results in healthier patients.
+
+          </div>
+
+          <div className="text-2xl mt-10">
+          Solution: I built an automated SDOH risk factor & personalized intervention tool.  This is an AI agentic system that takes any clinical note, reads it, and extracts a patient's SDOH risk factors. The agent then maps 
+          the risk factors to ICD-10 Z codes for reimbursement purposes, and then searches for local interventions for each identified risk factor. All that's left is for the social worker or case manager to follow up.
+          The result is less time pushing paper and more time helping people. 
+           </div>
+          
+           <div className="text-2xl mt-10" >
+          Tech stack: Langgraph for the agentic system; Open AI 4.0 mini for the LLM. Frontend: React/Next.js. Backend: Python FastAPI</div>
+        
+          <ScreeningGuidelines />
+
+       </motion.div>
+         );
+
       case 'Healthcare Data Science Projects':
         // Example with a different specific component (if needed)
         // return <motion.div {...motionProps}><Project2Details details={projectData[activeSection]} /></motion.div>;
          return (
           <motion.div key={activeSection} {...motionProps}>
-            <TypingText className="text-blue-500" text={`Data holds hidden treasure.  I can help find it.`}/>
+            <TypingText className="text-blue-500" text={`Data holds treasure.  I can help find it.`}/>
 
             <div className="text-xl mt-10 text-center italics">Please click on a dashboard to view it (sorry, it will take 60 seconds to load due to streamlit spinning down servers every few hours)</div>
             <div className="text-2xl mt-10 text-center"><a href="https://mipsdashboard.streamlit.app/">Merit-based Incentive Payment System (MIPS) Dashboard</a></div>
@@ -118,17 +150,6 @@ export default function Home() {
 
           </motion.div>
          );
-
-      // case 'project 2: Interact FHIR Transformer':
-      //   // Example with a different specific component (if needed)
-      //   // return <motion.div {...motionProps}><Project2Details details={projectData[activeSection]} /></motion.div>;
-      //    return (
-      //     <motion.div key={activeSection} {...motionProps}>
-      //       <TypingText text={`Reason 2: Data is the currency of healthcare.  I can make it flow.`} />
-      //        <FHIRTransformer />
-
-      //     </motion.div>
-      //    );
 
       // Add cases for project 3, 4, 5, using specific or generic components as needed
       case 'project 3':
