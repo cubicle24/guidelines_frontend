@@ -29,16 +29,17 @@ export default function Home() {
   // --- State and Data ---
   // const sections: string[] = ['intro', 'project 1', 'project 2', 'project 3', 'project 4', 'project 5'];
   // const sections: string[] = ['Hello', 'project 1: a modern clinical decision support system', 'project 2: a flexible FHIR Transformer'];
-  const sections: string[] = ['Hello', 'A next generation clinical decision support system'];
-  const [activeSection, setActiveSection] = useState<string>('intro');
+  const sections: string[] = ['Hello', 'Clinical AI: A next generation clinical decision support system', 'Healthcare Data Science Projects'];
+  const [activeSection, setActiveSection] = useState<string>('Hello');
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   // --- Components ---
   interface TypingTextProps {
     text: string;
+    className?: string;
   }
 
-  const TypingText = ({ text }: TypingTextProps) => {
+  const TypingText = ({ text, className }: TypingTextProps) => {
     const [displayed, setDisplayed] = useState('');
     useEffect(() => {
       let i = 0;
@@ -49,7 +50,7 @@ export default function Home() {
       }, 33);
       return () => clearInterval(interval);
     }, [text]);
-    return <p className="text-4xl whitespace-pre-line font-mono">{displayed}</p>;
+    return <p className={`text-4xl whitespace-pre-line font-mono ${className || ''}`}>{displayed}</p>; // 3. Apply it
   };
 
   // --- Event Handlers ---
@@ -71,48 +72,69 @@ export default function Home() {
         // Option 1: Inline TypingText
         return (
           <motion.div key={activeSection} {...motionProps}>
-             <TypingText text={`Hi, thanks for coming.\n\nI'd like to give you\n\nthe best reason to hire me, \n\nusing one project.`} />
+             <TypingText text={`Hi, thanks for coming!\n\nI work at the intersection of applied clinical AI (LLMs),\n
+              data science for healthcare, and software engineering for EHRs & CDSS.\n
+              I am an MD with additional training in clinical informatics\n\n and public health. \n\nPlease kindly explore the projects I have built that highlight\n
+               my interests and skillset.\n\n\n If you like what you see, please feel free to contact me!`} />
           </motion.div>
         );
         // Option 2: Use a dedicated IntroSection component
         // return <motion.div {...motionProps}><IntroSection /></motion.div>;
 
-      case 'A next generation clinical decision support system':
+      case 'Clinical AI: A next generation clinical decision support system':
         // Option 1: Use specific component
         // return <motion.div {...motionProps}><Project1Details data={projectData[activeSection]} /></motion.div>;
         // Option 2: Use generic Project component if structure is the same
          return (
             <motion.div key={activeSection} {...motionProps}>
-                <TypingText text={`The Top Reason: LLMs are the future of healthcare.  I am already there.\n\n 
-                Problem: Preventive screening for disease is still the most clinically \nand cost effective medical care we have.
-                Health plans know this, so doctors are rewarded or penalized based on\n their medical screening practices. However, there are more than\n 97 different and ever-changing screening guidelines. 
-                It is unrealistic to expect doctors to remember all of them.  Rules-based\n reminder systems can not capture the entire range of clinical possibilities.\n\n
+                <TypingText className="text-blue-500 text-center" text={`LLMs are the future of healthcare.  I am already there.`} />
+                <div className="text-2xl mt-10">Problem: Preventive screening for disease is still the most clinically and cost effective medical care we have.
+                Health plans know this, so doctors are rewarded or penalized based on<br/> their medical screening practices. However, there are more than 97 different, frequently changing screening guidelines.
+                It is unrealistic to expect doctors<br /> to remember all of them.  Rules-based reminder systems can not capture the full range of clinical possibilities.</div>
+
+                <div className="text-2xl mt-10">
                 Solution: I built a retrieval augmented generation (RAG) system that takes
-                 a patient note and generates a personalized, ranked list of the most appropriate\n screening guidelines, automatically.  This improves a doctor's\n performance, routes appropriate care to the patient, and saves\n the health system money. Everyone wins.\n\n
-                  Tech stack: Langchain for the RAG, using Gemini 2.5 Flash. \nFrontend: React/Next.js. Backend: Python FastAPI\n`} />
+                 a patient note and generates a personalized, ranked list of the most appropriate screening guidelines, automatically.<br />This makes for better doctors, healthier patients, and more efficient care. Everyone wins.
+                 </div>
+                
+                 <div className="text-2xl mt-10" >
+                  Tech stack: Langchain for the RAG, using Gemini 2.5 Flash. Frontend: React/Next.js. Backend: Python FastAPI</div>
               
                 <ScreeningGuidelines />
 
              </motion.div>
          );
 
-      case 'project 2: a flexible FHIR Transformer':
+      case 'Healthcare Data Science Projects':
         // Example with a different specific component (if needed)
         // return <motion.div {...motionProps}><Project2Details details={projectData[activeSection]} /></motion.div>;
          return (
           <motion.div key={activeSection} {...motionProps}>
-            <TypingText text={`Reason 2: Data is the currency of healthcare.  I can make it flow.`} />
-             <FHIRTransformer />
+            <TypingText className="text-blue-500" text={`Data holds hidden treasure.  I can help find it.`}/>
+
+            <div className="text-xl mt-10 text-center italics">Please click on a dashboard to view it (sorry, it will take 60 seconds to load due to streamlit spinning down servers every few hours)</div>
+            <div className="text-2xl mt-10 text-center"><a href="https://mipsdashboard.streamlit.app/">Merit-based Incentive Payment System (MIPS) Dashboard</a></div>
+            <div className="text-2xl mt-4 text-center"><a href="https://opioidprescriptions.streamlit.app">Opioid Prescribing Patterns Dashboard</a></div>
 
           </motion.div>
          );
+
+      // case 'project 2: Interact FHIR Transformer':
+      //   // Example with a different specific component (if needed)
+      //   // return <motion.div {...motionProps}><Project2Details details={projectData[activeSection]} /></motion.div>;
+      //    return (
+      //     <motion.div key={activeSection} {...motionProps}>
+      //       <TypingText text={`Reason 2: Data is the currency of healthcare.  I can make it flow.`} />
+      //        <FHIRTransformer />
+
+      //     </motion.div>
+      //    );
 
       // Add cases for project 3, 4, 5, using specific or generic components as needed
       case 'project 3':
         return (
           <motion.div key={activeSection} {...motionProps}>
-            <TypingText text={`Reason 3: Data holds silent secrets.  I can make it speak.`} />
-             <FHIRTransformer />
+            <TypingText text={`Reason 3: Data holds secrets.  I can make it speak.`} />
 
           </motion.div>
         );
@@ -146,6 +168,7 @@ export default function Home() {
     }`}>
       <header className="flex justify-between items-center mb-12">
         <h1 className="text-2xl font-bold"><a href="mailto:richardlu@alum.mit.edu">Contact</a></h1>
+        <a href="https://github.com/cubicle24">my Github</a>
         <button
           className="py-2 px-4 cursor-pointer"
           onClick={toggleTheme}
