@@ -14,13 +14,13 @@ export default function SDOH() {
       setError("");
       
       try {
-        let requestPayload = {"clinicalNote": clinicalNote};
-        let data = await getSDOH(requestPayload);
-        console.log("Risk factors & interventions:", data.sdoh_data);
-        setSDOH(data.sdoh_data || null)
+        let requestPayload = {"note": clinicalNote};
+        let response = await getSDOH(requestPayload);
+        console.log("Risk factors & interventions:", response);
+        setSDOH(response.sdoh || null)
       } catch (err) {
         console.error("Error:", err);
-        setError("Failed to analyze sdoh.");
+        setError("Sorry, failed to analyze sdoh.");
       } finally {
         setIsLoading(false);
       }
@@ -29,7 +29,7 @@ export default function SDOH() {
   
 
     return (
-      <div className="min-h-screen w-full bg-gradient-to-b from-purple-200 to-purple-375 flex flex-col items-center justify-top mt-36 px-36 py-36 text-3xl">
+      <div className="min-h-screen w-full bg-gradient-to-b from-teal-100 to-teal-275 flex flex-col items-center justify-top mt-36 px-36 py-36 text-3xl rounded-lg">
         <h1 className="text-5xl font-bold text-center text-gray-800 mb-1">
           SDOH RISK FACTORS
         </h1>

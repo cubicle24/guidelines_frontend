@@ -21,10 +21,11 @@ export interface GuidelineResponse {
 }
 
 export interface SDOHResponse {
-  sdoh_data: {
     sdoh: {[key: string]: SDOHRiskFactor};
-    audit_trail: string[];
-  } | null;
+    audit_trail: any[];
+    zipcode?: string;
+    zipcode_tool_called?: boolean;
+    social_services?: any[];
 }
 
 export interface SDOHRiskFactor {
@@ -35,15 +36,15 @@ export interface SDOHRiskFactor {
 }
 
 // Base URL for the API
-// const API_URL = 'http://localhost:8000';
-const API_URL = 'http://154.53.56.13:8000';
+const API_URL = 'http://localhost:8001';
+// const API_URL = 'http://154.53.56.13:8000';
 
 /**
  * Fetches screening recommendations based on patient notes
  * @param patientNote - The clinical note about the patient
  * @returns Promise with the recommendations response
  */
-export const getRecommendations = async (body: {clinicalNote: string}): Promise<GuidelineResponse> => {
+export const getRecommendations = async (body: {note: string}): Promise<GuidelineResponse> => {
   try {
     const response = await fetch(`${API_URL}/guidelines/recommendations`, {
       method: 'POST',
@@ -70,7 +71,7 @@ export const getRecommendations = async (body: {clinicalNote: string}): Promise<
  * @param clinicalNote - The clinical note about the patient
  * @returns Promise with the SDOH data package returned
  */
-export const getSDOH = async (body: {clinicalNote: string}): Promise<SDOHResponse> => {
+export const getSDOH = async (body: {note: string}): Promise<SDOHResponse> => {
   try {
     const response = await fetch(`${API_URL}/sdoh/run_agent_sync`, {
       method: 'POST',
