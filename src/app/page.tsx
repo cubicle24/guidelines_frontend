@@ -9,6 +9,7 @@ import { FiSun, FiMoon } from 'react-icons/fi';
 import Project from '../components/Project'; // Generic project component
 import ScreeningGuidelines from '../components/ScreeningGuidelines';
 import FHIRTransformer from '../components/FHIRTransformer';
+import SDOH from '../components/SDOH';
 // import IntroSection from '../components/IntroSection'; // Optional specific intro component
 // import Project1Details from '../components/Project1Details'; // Specific component for Project 1
 // import Project2Details from '../components/Project2Details'; // Specific component for Project 2
@@ -29,7 +30,7 @@ export default function Home() {
   // --- State and Data ---
   // const sections: string[] = ['intro', 'project 1', 'project 2', 'project 3', 'project 4', 'project 5'];
   // const sections: string[] = ['Hello', 'project 1: a modern clinical decision support system', 'project 2: a flexible FHIR Transformer'];
-  const sections: string[] = ['Hello', 'Clinical AI: A next generation clinical decision support system', 'A Social Determinants of Health (SDOH) Autonomous Agent',
+  const sections: string[] = ['Hello', 'Clinical AI: A next generation clinical decision support system', 'A Social Determinants of Health AI Agent',
     'Healthcare Data Science Projects',
     
   ];
@@ -108,31 +109,36 @@ export default function Home() {
              </motion.div>
          );
 
-      case 'A Social Determinants of Health (SDOH) Autonomous Agent':
+      case 'A Social Determinants of Health AI Agent':
         // Example with a different specific component (if needed)
         // return <motion.div {...motionProps}><Project2Details details={projectData[activeSection]} /></motion.div>;
          return (
           <motion.div key={activeSection} {...motionProps}>
-          <TypingText className="text-blue-500 text-center" text={`I help fix the fundamental contradiction of healthcare: providers practice paperwork more than patient care.`} />
-          <div className="text-2xl mt-10">The Problem: &nbsp;Staying healthy often has little to do with one's body. Between 50-80% of a person's health is determined by circumstances that may be outside a person's immediate control.    
-          Social determinants of health (SDOH), such as unemployment, housing instability, food insecurity, etc., are now recognized to be as integral to a person's health
-          as their cholesterol. In simple terms, it's difficult to stay healthy when you have to ride 3 buses just to get to work, healthy food costs too much, and sleep poorly because you can't afford to turn on the heat at night. <br /> 
+          <TypingText className="text-blue-500 text-center" text={`I help fix the fundamental contradiction in healthcare: \nproviders practice paperwork more than patient care.`} />
+          <div className="text-2xl mt-10">The Problem: &nbsp;Staying healthy involves more than just one's body. Between 50-80% of a person's health is determined by circumstances that are partially outside<br />
+          of a person's control.    
+          Social determinants of health (SDOH), such as unemployment, housing instability, food insecurity, etc., are now recognized to be <br />
+          as integral to a person's health
+          as their cholesterol. In simple terms, it's difficult to stay healthy when you have to ride 3 buses just to get to work, healthy food costs<br />
+          too much, and you sleep poorly because you're afraid to turn on the heat at night. <br /> 
           <br />
-          Physicians, social workers, and case managers all care about SDOH, but they have no time to ask about them.  
-          Furthermore, reimbursement and quality scores are now tied to improving SDOH since it is not only cost-effective, but results in healthier patients.
+          Physicians, social workers, and case managers know how crucial SDOH is, but they do not have enough time--even though 
+          reimbursement and<br /> quality scores are now tied to addressing SDOH.
 
           </div>
 
           <div className="text-2xl mt-10">
-          Solution: I built an automated SDOH risk factor & personalized intervention tool.  This is an AI agentic system that takes any clinical note, reads it, and extracts a patient's SDOH risk factors. The agent then maps 
-          the risk factors to ICD-10 Z codes for reimbursement purposes, and then searches for local interventions for each identified risk factor. All that's left is for the social worker or case manager to follow up.
+          Solution: I built an automated SDOH risk factor identifier & intervention tool.  This is an AI agent that reads any clinical note and identifies<br />
+          a patient's SDOH risk factors. The agent then maps 
+          the risk factors to ICD-10 Z codes for reimbursement purposes, and then searches for local interventions.<br />
+          All that's left is for the social worker or case manager to follow up.
           The result is less time pushing paper and more time helping people. 
            </div>
           
            <div className="text-2xl mt-10" >
-          Tech stack: Langgraph for the agentic system; Open AI 4.0 mini for the LLM. Frontend: React/Next.js. Backend: Python FastAPI</div>
+          Tech stack: Langgraph for the agentic system; OpenAI 4.0 mini for the LLM. Frontend: React/Next.js. Backend: Python FastAPI</div>
         
-          <ScreeningGuidelines />
+          <SDOH />
 
        </motion.div>
          );
