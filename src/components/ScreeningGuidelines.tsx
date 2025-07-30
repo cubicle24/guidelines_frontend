@@ -94,7 +94,7 @@ export default function ScreeningGuidelines() {
               onClick={handleSubmit}
               disabled={isLoading}
             >
-              {isLoading ? "Processing . . ." : "Go"}
+              {isLoading ? <span className="animate-pulse">Processing . . .</span> : "Go"}
             </button>
           </div>
           {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}

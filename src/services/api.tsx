@@ -58,7 +58,9 @@ export const getRecommendations = async (body: {note: string}): Promise<Guidelin
       throw new Error(`API error: ${response.status}`);
     }
 
-    return await response.json();
+    const data =  await response.json();
+    console.log('here is the json api response',data);
+    return data
   } catch (error) {
     console.error('Error fetching recommendations:', error);
     throw error;
@@ -81,11 +83,14 @@ export const getSDOH = async (body: {note: string}): Promise<SDOHResponse> => {
       body: JSON.stringify(body),
     });
 
+
     if (!response.ok) {
       throw new Error(`SDOH API error: ${response.status}`);
     }
+    const data = await response.json();
+    console.log('this is our api response',data);
+    return data;
 
-    return await response.json();
   } catch (error) {
     console.error('Error fetching SDOH response:', error);
     throw error;

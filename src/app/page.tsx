@@ -76,10 +76,11 @@ export default function Home() {
         // Option 1: Inline TypingText
         return (
           <motion.div key={activeSection} {...motionProps}>
-             <TypingText text={`Hi, thanks for coming!\n\nI work at the intersection of applied clinical AI (LLMs),\n
-              data science for healthcare, and software engineering for EHRs & CDSS.\n
-              I am an MD with additional training in clinical informatics\n\n and public health. \n\nPlease kindly explore the projects I have built that highlight\n
-               my interests and skillset.\n\n\n If you like what you see, please feel free to contact me!`} />
+             <TypingText text={`Hi, thanks for coming!\n\nI work at the intersection of applied clinical AI (LLMs) \nwith healthcare (EHR) data.\n
+              Whether it's building CDS systems, FHIR integration,
+              or analyzing healthcare data, I'm ready to help.\n
+              I am an MD with additional training in clinical informatics and public health. \n\nPlease explore the projects I have built that highlight
+               my interests and skills.\n\n\n If you like what you see, please feel free to contact me!`} />
           </motion.div>
         );
         // Option 2: Use a dedicated IntroSection component
